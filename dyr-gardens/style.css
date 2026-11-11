@@ -972,3 +972,195 @@ dialog[open]::backdrop {
     top: auto !important;
   }
 }
+
+
+/* ==========================================================================
+   Comprehensive Mobile & Phone Optimization (Zero Horizontal Overflow, Touch-First)
+   ========================================================================== */
+
+html, body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure iOS Safari does not auto-zoom on input focus */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* Compact Hero Spacing for Phones */
+  .hero, .hero-heritage {
+    padding: 55px 0 45px !important;
+    min-height: auto !important;
+  }
+
+  .hero-title, .hero-heading, .hero-headline {
+    font-size: 1.85rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 16px !important;
+    word-break: break-word;
+  }
+
+  .hero-desc, .hero-text, .hero-description {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 24px !important;
+  }
+
+  .section {
+    padding: 50px 0 !important;
+  }
+
+  .section-title, .section-lead h2, .section-title-wrap h2 {
+    font-size: 1.65rem !important;
+    line-height: 1.25 !important;
+  }
+
+  /* 1-Column Responsive Grids on Mobile */
+  .spaces-grid,
+  .spaces-showcase,
+  .halls-cards-grid,
+  .amenities-grid,
+  .hero-stats,
+  .hero-specs-row,
+  .key-facts-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  /* Phone Hero Stats 2-column compact grid */
+  .hero-stats,
+  .hero-specs-row,
+  .key-facts-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .stat-card, .spec-pill, .fact-box {
+    padding: 12px 8px !important;
+  }
+
+  .stat-number, .fact-title {
+    font-size: 1.35rem !important;
+  }
+
+  .stat-label, .spec-pill span, .fact-desc {
+    font-size: 0.72rem !important;
+  }
+
+  /* Form & Estimator Cards on Phone */
+  .estimator-box,
+  .package-layout,
+  .heritage-flex,
+  .location-card,
+  .location-grid,
+  .loc-wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding: 24px 16px !important;
+  }
+
+  .estimator-calculator,
+  .calculator-card,
+  .tariff-card {
+    padding: 20px 16px !important;
+  }
+
+  /* Buttons on Phones */
+  .hero-actions, .hero-cta-group, .hero-btn-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px !important;
+  }
+
+  .hero-actions .btn,
+  .hero-cta-group .btn,
+  .hero-btn-row .btn {
+    width: 100% !important;
+    min-height: 46px;
+    padding: 12px 20px !important;
+  }
+
+  /* Full Width Dialog Modal on Mobile */
+  dialog:modal {
+    width: calc(100% - 24px) !important;
+    max-width: calc(100% - 24px) !important;
+    margin: auto !important;
+    padding: 0 !important;
+  }
+
+  .dialog-content, .dialog-box, .pvr-modal-inner {
+    padding: 24px 16px !important;
+  }
+
+  .dialog-form .form-row,
+  .dyr-dialog-form .field-row,
+  .pvr-form .pvr-grid-2 {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  /* Top Bar & Header on Phones */
+  .top-bar-content,
+  .announcement-inner,
+  .trust-bar-flex {
+    flex-direction: column !important;
+    text-align: center;
+    gap: 6px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .nav-content, .header-inner, .nav-container {
+    padding: 12px 0 !important;
+  }
+
+  .brand-title, .logo-title, .brand-name {
+    font-size: 0.95rem !important;
+  }
+
+  .brand-subtitle, .logo-sub, .brand-tag {
+    font-size: 0.6rem !important;
+  }
+
+  /* Footer on Phones */
+  .footer-content, .footer-inner, .pvr-footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  /* Sticky Action Bar Phone Safe Area */
+  .sticky-contact, .sticky-pvr {
+    padding: 10px 12px !important;
+    padding-bottom: max(10px, env(safe-area-inset-bottom)) !important;
+  }
+
+  .floating-cta {
+    bottom: max(16px, env(safe-area-inset-bottom)) !important;
+    right: 14px !important;
+  }
+
+  .cta-whatsapp {
+    padding: 10px 16px !important;
+    font-size: 0.82rem !important;
+  }
+}
