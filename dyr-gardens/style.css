@@ -963,3 +963,12 @@ dialog[open]::backdrop {
 .stat-card:hover, .spec-pill:hover, .fact-box:hover {
   transform: translateY(-4px);
 }
+
+
+/* Disable sticky header on phones / mobile screens to maximize screen space */
+@media (max-width: 850px) {
+  .site-header {
+    position: static !important;
+    top: auto !important;
+  }
+}
