@@ -217,11 +217,33 @@
       stroke-width: 2;
     }
     .specs-list .svg-icon { margin-right: 4px; }
+  
+    /* Reveal and Smooth Transitions */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .metric-item {
+      transition: transform 0.3s ease;
+    }
+    .metric-item:hover {
+      transform: translateY(-4px);
+    }
+    .btn-launch:active {
+      transform: scale(0.97);
+    }
+
   </style>
 </head>
 <body>
   <header>
-    <div class="container">
+    <div class="container reveal">
       <div class="badge">Bespoke Client Portals</div>
       <h1>Minimal & Professional Websites for <br><span>Premier Telangana Venues</span></h1>
       <p class="lead">
@@ -249,10 +271,10 @@
     </div>
   </header>
 
-  <main class="container">
+  <main class="container reveal">
     <div class="venues-grid">
       <!-- Venue 1: Samala Papi Reddy Gardens -->
-      <article class="venue-card">
+      <article class="venue-card reveal">
         <div class="card-thumb">
           <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Samala Papi Reddy Gardens">
           <span class="card-badge badge-spr">Regal Palace Archetype</span>
@@ -276,7 +298,7 @@
       </article>
 
       <!-- Venue 2: D.Y.R. Gardens -->
-      <article class="venue-card">
+      <article class="venue-card reveal">
         <div class="card-thumb">
           <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="DYR Gardens Yapral">
           <span class="card-badge badge-dyr">Botanical Elegance Archetype</span>
@@ -300,7 +322,7 @@
       </article>
 
       <!-- Venue 3: Pingali Venkatarama Reddy Convention Centre -->
-      <article class="venue-card">
+      <article class="venue-card reveal">
         <div class="card-thumb">
           <img src="https://images.unsplash.com/photo-1545232979-fbf6c9688536?auto=format&fit=crop&w=800&q=80" alt="PVR Convention Lower Tank Bund">
           <span class="card-badge badge-pvr">Cultural Heritage Archetype</span>
@@ -328,5 +350,20 @@
       <p>Built for direct client outreach and web acquisition pitches. All venue phone numbers, addresses, and spatial parameters verified from ground records.</p>
     </footer>
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
+
 </html>

@@ -112,4 +112,22 @@ document.addEventListener('DOMContentLoaded', () => {
       bookingForm.reset();
     });
   }
+
+  // Smooth Scroll-Reveal Observer (Compositor Only)
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  } else {
+    // Fallback if IntersectionObserver not supported
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
+  }
+
 });
