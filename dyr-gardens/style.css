@@ -867,3 +867,21 @@ dialog::backdrop {
     grid-template-columns: 1fr;
   }
 }
+
+/* SVG Icon Styling */
+.svg-icon {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.15em;
+  stroke-width: 2;
+}
+.amenity-icon .svg-icon,
+.t-icon .svg-icon,
+.map-pin .svg-icon,
+.pin-pulse .svg-icon,
+.temple-icon .svg-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  vertical-align: middle;
+}
